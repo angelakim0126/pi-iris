@@ -170,7 +170,8 @@ function renderLeaderboardHtml(highlight) {
   let html = '<table class="leaderboard"><thead><tr><th>#</th><th>Name</th><th>Digits</th><th>When</th></tr></thead><tbody>';
   arr.slice(0, 10).forEach((e, i) => {
     const isHi = highlight && e.ts === highlight.ts && e.name === highlight.name && e.digits === highlight.digits;
-    const dateStr = new Date(e.ts).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+    const d = new Date(e.ts);
+    const dateStr = d.toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
     html += `<tr class="${isHi ? 'highlight' : ''}"><td>${i + 1}</td><td>${escapeHtml(e.name)}</td><td><b>${e.digits}</b></td><td>${dateStr}</td></tr>`;
   });
   html += '</tbody></table>';
