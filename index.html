@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#fce4f0">
+  <title>Iris's Pi Quest 🦄</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Home screen -->
+    <div id="home" class="screen">
+      <header class="home-header">
+        <h1>🦄 Iris's Pi Quest 🌈</h1>
+        <p class="subtitle">Learn the magic numbers of π — chunk by chunk! ✨</p>
+      </header>
+
+      <div class="stats-bar">
+        <div class="stat">
+          <span class="stat-label">⭐ Stars</span>
+          <span class="stat-value"><span id="mastered-stat">0</span> / 100</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">💖 Best</span>
+          <span class="stat-value" id="best-stat">0</span>
+        </div>
+      </div>
+
+      <div class="progress-bar" aria-label="Progress to 100 digits">
+        <div class="progress-fill" id="home-progress"></div>
+      </div>
+
+      <div class="mode-grid">
+        <button class="mode-btn" data-mode="learn">
+          <div class="mode-icon">🌈</div>
+          <div class="mode-name">Practice</div>
+          <div class="mode-desc">Learn 3 new digits</div>
+        </button>
+        <button class="mode-btn" data-mode="test">
+          <div class="mode-icon">💖</div>
+          <div class="mode-name">Big Try</div>
+          <div class="mode-desc">Show what you know</div>
+        </button>
+        <button class="mode-btn" data-mode="typeahead">
+          <div class="mode-icon">✨</div>
+          <div class="mode-name">Help Me Type</div>
+          <div class="mode-desc">Practice with hints</div>
+        </button>
+        <button class="mode-btn" data-mode="blanks">
+          <div class="mode-icon">🔍</div>
+          <div class="mode-name">Find Missing</div>
+          <div class="mode-desc">Spot the hidden digits</div>
+        </button>
+      </div>
+
+      <div class="settings-row">
+        <label><input type="checkbox" id="sound-toggle"> 🔊 Sound</label>
+        <button id="reset-btn" class="link-btn">Start over</button>
+      </div>
+    </div>
+
+    <!-- Game screen (shared by all modes) -->
+    <div id="game" class="screen hidden">
+      <div class="game-header">
+        <button class="back-btn" id="back-btn">← Home</button>
+        <div class="mode-title" id="game-mode-title"></div>
+        <div class="game-stat" id="game-stat-display"></div>
+      </div>
+      <div class="game-content" id="game-content"></div>
+      <div class="number-pad" id="number-pad">
+        <button data-digit="1">1</button><button data-digit="2">2</button><button data-digit="3">3</button>
+        <button data-digit="4">4</button><button data-digit="5">5</button><button data-digit="6">6</button>
+        <button data-digit="7">7</button><button data-digit="8">8</button><button data-digit="9">9</button>
+        <button data-digit="0" class="zero">0</button>
+      </div>
+    </div>
+
+    <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
